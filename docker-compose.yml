@@ -1,0 +1,9 @@
+services:
+  builder:
+    build:
+      context: ./docker-env
+    image: web2app-builder
+    volumes:
+      - ./android-app:/app
+      - ./.gradle-cache:/root/.gradle
+    command: bash -c "cd /app && gradle assembleDebug"
